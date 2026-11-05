@@ -3,3 +3,73 @@ USE BANKING_SYSTEMDB;      -- Accessed the database
 
 SHOW DATABASES;   -- View the Database
 SHOW TABLES;  -- Viewing the tables in the current database
+
+-- Creating tables
+
+CREATE TABLE CUSTOMERS(
+CUSTOMERID INT,
+FIRSTNAME VARCHAR(50),
+LASTNAME VARCHAR(50),
+EMAIL VARCHAR(100),
+PHONE VARCHAR(10));
+
+DESCRIBE TABLE CUSTOMERS;   -- Describing the table Customers
+DESCRIBE CUSTOMERS;   -- Viewing the types and columns of table Customers 
+
+ALTER TABLE CUSTOMERS
+ADD COLUMN ACCOUNTCREATIONDATE DATE;   -- Modifying on the table using ALTER
+
+CREATE TABLE ACCOUNTS(
+ACCOUNTID INT,
+ACCOUNTTYPE VARCHAR(20),
+BALANCE DECIMAL(10,2)
+);
+
+CREATE TABLE TRANSACTIONS(
+TRANSACTIONID INT,
+TRANSACTIONDATE DATE,
+AMOUNT DECIMAL(10,2),
+TRANSACTIONTYPE VARCHAR(20)
+);
+
+CREATE TABLE BRANCHES(
+BRANCHID INT,
+BRANCHNAME VARCHAR(100),
+BRANCHADDRESS VARCHAR(255),
+BRANCHPHONE VARCHAR(20));
+
+CREATE TABLE ACCOUNTBRANCHES(
+ASSIGNEDDATE DATE);
+
+CREATE TABLE LOANS(
+LOANID INT,
+LOANAMOUNT DECIMAL(10,2),
+INTERESTRATE DECIMAL(5,2),
+STARTDATE DATE,
+ENDDATE DATE);
+
+SHOW TABLES;
+
+-- Above required tables were created and all created tables were shown below
+-- Final Modifications on the tables
+
+ALTER TABLE CUSTOMERS
+DROP COLUMN ACCOUNTCREATIONDATE;    -- Dropping table that is not required.
+
+SELECT *
+FROM CUSTOMERS;
+
+ALTER TABLE CUSTOMERS
+ADD COLUMN BIRTHDATE DATE;   -- Adding new column in place of the one we deleted above acccreationdate
+
+ALTER TABLE CUSTOMERS
+MODIFY PHONE VARCHAR(20),   -- modified phone varchar limit
+ADD PRIMARY KEY (CUSTOMERID);    -- added a primary key in customer table
+
+DESCRIBE CUSTOMERS;   -- Describing the table Customers
+
+DROP TABLE ACCOUNTBRANCHES;   -- dropping/deletng accountbranches table
+
+
+
+
